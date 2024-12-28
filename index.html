@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCHOLAR QUEST</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-50 min-h-screen">
+    <div class="container mx-auto p-4 max-w-4xl">
+        <!-- Header -->
+        <div class="bg-white rounded-t-xl shadow-sm p-4 flex items-center gap-3 border-b mb-6">
+            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 flex items-center justify-center">
+                <i class="ri-robot-2-line text-xl text-white"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold text-gray-800">SCHOLAR QUEST -Student Information Assistant</h1>
+                <p class="text-sm text-gray-500">Get help with your queries</p>
+            </div>
+        </div>
+
+        <!-- Student Information Form -->
+        <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+            <h2 class="text-lg font-semibold mb-4">Student Information</h2>
+            <form id="studentForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Full Name:</label>
+                        <input type="text" id="fullName" required
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Age:</label>
+                        <input type="number" id="age" required
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Current Education Level:</label>
+                        <select id="educationLevel" required
+                                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Education Level</option>
+                            <option value="high_school">Post Graduate</option>
+                            <option value="undergraduate">Undergraduate</option>
+                            <option value="postgraduate">Postgraduate</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Course/Stream:</label>
+                        <input type="text" id="course" required
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Annual Family Income (₹):</label>
+                        <input type="number" id="income" required
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Category:</label>
+                        <select id="category" required
+                                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select Category</option>
+                            <option value="general">General</option>
+                            <option value="obc">OBC</option>
+                            <option value="sc">SC</option>
+                            <option value="st">ST</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">State:</label>
+                        <select id="state" required
+                                class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                            <option value="">Select State</option>
+                            <option value="maharashtra">Maharashtra</option>
+                            <option value="karnataka">Karnataka</option>
+                            <option value="tamil_nadu">Tamil Nadu</option>
+                            <!-- Add more states as needed -->
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Previous Year Percentage:</label>
+                        <input type="number" id="percentage" required step="0.01" min="0" max="100"
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Aadhar Number:</label>
+                        <input type="text" id="aadhar" required pattern="[0-9]{12}"
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email Address:</label>
+                        <input type="email" id="email" required
+                               class="w-full p-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    </div>
+                </div>
+                <button type="submit" 
+                        class="w-full bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                    Submit Information
+                </button>
+            </form>
+        </div>
+
+        <!-- Chat Interface -->
+        <div class="bg-white rounded-xl shadow-sm flex flex-col">
+            <div id="chat-container" class="flex-grow overflow-auto p-4 space-y-4 min-h-[300px] max-h-[500px]">
+                <div class="flex justify-center items-center h-full text-gray-400">
+                    <div class="text-center">
+                        <i class="ri-message-3-line text-4xl mb-2"></i>
+                        <p>Ask questions about scholarships and opportunities</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="border-t p-4">
+                <div class="flex gap-2 items-center">
+                    <div class="relative flex-grow">
+                        <input type="text" id="user-input" 
+                               class="w-full p-3 pr-10 border rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 bg-gray-50"
+                               placeholder="Ask about scholarships, eligibility, or requirements...">
+                        <button onclick="sendMessage()" 
+                                class="absolute right-2 top-1/2 transform -translate-y-1/2 text-blue-600 hover:text-blue-700 transition-colors">
+                            <i class="ri-send-plane-fill text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
